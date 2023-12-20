@@ -1,0 +1,142 @@
+[gd_scene load_steps=21 format=3 uid="uid://u31ejl6w73gu"]
+
+[ext_resource type="Texture2D" uid="uid://teo2a1bxmrou" path="res://assets/textures/other/Start.png" id="1_jt4sn"]
+[ext_resource type="Script" path="res://scripts/spawn_platform.gd" id="1_yohg1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3ar5"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twbht"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjkrx"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5x6"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u48iq"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61k8f"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cafir"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkbh7"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ch5"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srgkv"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l3qu"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ep6d"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jykjk"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx568"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4brvr"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh3yg"]
+atlas = ExtResource("1_jt4sn")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wbe6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3ar5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twbht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjkrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u48iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61k8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cafir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkbh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8ch5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srgkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l3qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ep6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jykjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx568")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4brvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh3yg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kqop"]
+size = Vector2(34, 8)
+
+[node name="SpawnPlatform" type="StaticBody2D"]
+script = ExtResource("1_yohg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wbe6p")
+autoplay = "default"
+frame_progress = 0.146753
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, 28)
+shape = SubResource("RectangleShape2D_4kqop")
+
+[node name="SpawnPosition" type="Marker2D" parent="."]
+position = Vector2(11, 22)

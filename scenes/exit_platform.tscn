@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=3 uid="uid://pilldhcmqxw"]
+
+[ext_resource type="Script" path="res://scripts/exit_platform.gd" id="1_2norp"]
+[ext_resource type="Texture2D" uid="uid://562vbueajfbq" path="res://assets/textures/other/End (Pressed) (64x64).png" id="1_8sbjo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8oek"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88wo5"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77uoa"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgq4v"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3by1"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw6gh"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6263"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62wrx"]
+atlas = ExtResource("1_8sbjo")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6yhv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8oek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88wo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77uoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgq4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3by1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw6gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6263")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62wrx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwr2a"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgvy0"]
+size = Vector2(34, 8)
+
+[node name="ExitPlatform" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_2norp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_k6yhv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22)
+shape = SubResource("CircleShape2D_kwr2a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_xgvy0")

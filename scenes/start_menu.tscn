@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://klg4r3044oyl"]
+
+[ext_resource type="PackedScene" uid="uid://w7uifxrgs7i3" path="res://scenes/background.tscn" id="1_3vds0"]
+[ext_resource type="Script" path="res://scripts/start_menu.gd" id="1_apsxd"]
+[ext_resource type="Texture2D" uid="uid://ca0a7i67b3e6o" path="res://assets/textures/bg/Green.png" id="2_ehdnc"]
+[ext_resource type="FontFile" uid="uid://bv1rnx3susduu" path="res://assets/fonts/Kenney Pixel Square.ttf" id="3_v24me"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7nal6"]
+font = ExtResource("3_v24me")
+font_size = 42
+font_color = Color(0.6, 0, 1, 1)
+outline_size = 5
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apsxd")
+
+[node name="Background" parent="." instance=ExtResource("1_3vds0")]
+backround_texture = ExtResource("2_ehdnc")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -80.0
+offset_right = 180.5
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Martian Mike"
+label_settings = SubResource("LabelSettings_7nal6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 2.0
+offset_right = 80.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_v24me")
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 42.0
+offset_right = 80.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_v24me")
+text = "Options"
+
+[node name="LeaderboardButton" type="Button" parent="."]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 83.0
+offset_right = 80.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_v24me")
+text = "Leaderboard"
+
+[connection signal="pressed" from="StartButton" to="." method="on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="on_options_button_pressed"]
+[connection signal="pressed" from="LeaderboardButton" to="." method="on_leaderboard_button_pressed"]
